@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="ar.importaciones" version="1.0.3" >
-    <name>AR Import</name>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="ar.importaciones" version="1.0.4" >
+    <name>AR Import IOS</name>
     <description>Tus Importaciones Seguras.</description>
     <author href="http://mindtec.com.mx/" email="contacto@mindtec.com.mx">Mindtec Software Revolution</author>
     <content src="index.html" />
@@ -32,10 +32,9 @@
 	<feature name="http://api.phonegap.com/1.0/network" />
 	<access origin="*" onlyInBrowser="true" />
 	
-	<icon src="img/icon.png" />
-    
-	<platform name="ios">
-		<preference name="orientation" value="portrait" />
+	<preference name="orientation" value="portrait" />
+	<!--<platform name="ios">-->
+	  <icon src="img/icon.png" />    
 	  <icon src="img/icon-40.png"            gap:platform="ios"        width="40" height="40" />	
 	  <icon src="img/icon-50.png"            gap:platform="ios"        width="50" height="50" />
 	  <icon src="img/icon-57.png"            gap:platform="ios"        width="57" height="57" />  
@@ -50,7 +49,7 @@
 	  <icon src="img/icon-72-2x.png"         gap:platform="ios"        width="144" height="144" />
 	  <icon src="img/icon-76-2x.png"         gap:platform="ios"        width="152" height="152" />
 	  <icon src="img/icon-512-2x.png"        gap:platform="ios"        width="1024" height="1024" />
-    </platform>
+    <!--</platform>-->
 	
     <allow-navigation href="*"/>
     <allow-intent href="http://*/*" />
