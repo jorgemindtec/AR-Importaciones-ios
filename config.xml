@@ -6,7 +6,7 @@
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
 	<preference name="orientation" value="portrait" />
-	<preference name="phonegap-version" value="cli-7.0.1" />
+	<preference name="phonegap-version" value="cli-8.0.0" />
 	
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.2.0" />
@@ -16,12 +16,15 @@
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
     <plugin name="cordova-plugin-file-transfer" source="npm" spec="~1.5.0" />
 	
-	<plugin name="cordova-plugin-camera"> 
+	<plugin name="cordova-plugin-camera">
+		<edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="overwrite">
+			<string>Se requiere el permiso de la camara para tomar fotografias de los productos a importar.</string>
+		</edit-config>
 		<param name="CAMERA_USAGE_DESCRIPTION" value="Se requiere el permiso de la camara para tomar fotografias de los productos a importar." /> 
-		<param name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Se utilizara la libreria multimedia para seleccionar las fotografias de los productos a importar." /> 
+		<!--<param name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Se utilizara la libreria multimedia para seleccionar las fotografias de los productos a importar." /> 
         <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
             <string>$CAMERA_USAGE_DESCRIPTION</string>
-        </config-file>
+        </config-file>-->
 	</plugin>
 	
 	<feature name="http://api.phonegap.com/1.0/network" />
