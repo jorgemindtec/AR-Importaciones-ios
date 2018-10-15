@@ -31,8 +31,8 @@
 	<access origin="*" onlyInBrowser="true" />
 	
 	<platform name="ios">
-	  <icon src="res/icon/ios/icon.png" />
-	  <icon src="res/icon/ios/icon-40.png" width="40" height="40" />	
+	  <icon src="../res/icon/ios/icon.png" />
+	  <icon src="../res/icon/ios/icon-40.png" width="40" height="40" />	
 	  <icon src="res/icon/ios/icon-50.png" width="50" height="50" />
 	  <icon src="res/icon/ios/icon-57.png" width="57" height="57" />  
 	  <icon src="res/icon/ios/icon-60.png" width="60" height="60" />  
