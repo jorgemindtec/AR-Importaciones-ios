@@ -74,14 +74,16 @@
 			destinationType = navigator.camera.DestinationType;
 	
 			window.open = cordova.InAppBrowser.open;
-			//navigator.splashscreen.hide();
+			navigator.splashscreen.hide();
 			
 			document.addEventListener("backbutton", BotonBackCel, false);	
 			
-			//loadscreen(0);  
+			/*loadscreen(0);  
 			setTimeout(function() {
-				loadscreen();
-			}, 2000);
+				loadscreen(1);			
+		$("#inicio").show();
+				
+			}, 2000);*/
 			
 		}
 		var CerrarMenu = false;
@@ -98,8 +100,12 @@
 			}
 		}
 		function loadscreen(dato){
-			document.getElementById("load").className="hide";				
-			$("#inicio").show();
+			if(dato==0){
+				document.getElementById("load").className="display";				
+			}
+			else if(dato==1){
+				document.getElementById("load").className="hide";	
+			}	
 		}
 		
 	</script>	
@@ -140,8 +146,6 @@
 		
 	</div>
 </div>
-<script>
-</script>
     <!--<script src="js/touch-sideswipe.js"></script>-->
     <!--<script type="text/javascript">	
         var config = {
@@ -160,7 +164,15 @@
         document.getElementById('callClose').addEventListener('click', function(){touchSideSwipe.tssClose()});*/
     </script>-->
  <!--  *****************************************************************************************************************  -->	
-	
+	<script>
+			loadscreen(0);  
+			setTimeout(function() {
+			//alert("asdqwe");
+				loadscreen(1);
+		$("#inicio").show();	
+				
+			}, 4000);
+	</script>
 <!-- PANTALLA INICIO --------------------------------------------------------------- -->
 		<div id="inicio" class="contenedor inicio" style="display:none;">
 			<div id="fondo"></div>
@@ -258,7 +270,6 @@
     </script>
 <!-- CSS -->
 	<style>
-        /*jssor slider loading skin spin css*/
         .jssorl-009-spin img {
             animation-name: jssorl-009-spin;
             animation-duration: 1.6s;
@@ -271,7 +282,6 @@
             to { transform: rotate(360deg); }
         }
 
-        /*jssor slider arrow skin 073 css*/
         .jssora073 {display:block;position:absolute;cursor:pointer;}
         .jssora073 .a {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;}
         .jssora073:hover {opacity:.8;}
@@ -282,7 +292,7 @@
     </style>
 <!-- HTML -->
 	<div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;/*width:100%;*/height:150px;overflow:hidden;visibility:hidden;">
-        <!-- Loading Screen -->
+        
         <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
             <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" />
         </div>
@@ -291,37 +301,37 @@
                 <img data-u="image" src="http://ar-pruebas.mindtec.me/ejemplo-ar.jpg" />
             </div>
             <div>
-                <img data-u="image" src="https://www.mindtec.com.mx/wp-content/uploads/2018/08/publicidad.jpg" />
+                <img data-u="image" src="http://ar-pruebas.mindtec.me/ejemplo-ar.jpg" />
             </div>
             <div>
                 <img data-u="image" src="http://ar-pruebas.mindtec.me/ejemplo-ar.jpg" />
             </div>
             <div>
-                <img data-u="image" src="https://www.mindtec.com.mx/wp-content/uploads/2018/08/publicidad.jpg" />
+                <img data-u="image" src="http://ar-pruebas.mindtec.me/ejemplo-ar.jpg" />
             </div>
             <div>
                 <img data-u="image" src="http://ar-pruebas.mindtec.me/ejemplo-ar.jpg" />
             </div>
             <div>
-                <img data-u="image" src="https://www.mindtec.com.mx/wp-content/uploads/2018/08/publicidad.jpg" />
+                <img data-u="image" src="http://ar-pruebas.mindtec.me/ejemplo-ar.jpg" />
             </div>
             <div>
                 <img data-u="image" src="http://ar-pruebas.mindtec.me/ejemplo-ar.jpg" />
             </div>
             <div>
-                <img data-u="image" src="https://www.mindtec.com.mx/wp-content/uploads/2018/08/publicidad.jpg" />
+                <img data-u="image" src="http://ar-pruebas.mindtec.me/ejemplo-ar.jpg" />
             </div>
             <div>
                 <img data-u="image" src="http://ar-pruebas.mindtec.me/ejemplo-ar.jpg" />
             </div>
             <div>
-                <img data-u="image" src="https://www.mindtec.com.mx/wp-content/uploads/2018/08/publicidad.jpg" />
+                <img data-u="image" src="http://ar-pruebas.mindtec.me/ejemplo-ar.jpg" />
             </div>
             <div>
                 <img data-u="image" src="http://ar-pruebas.mindtec.me/ejemplo-ar.jpg" />
             </div>
             <div>
-                <img data-u="image" src="https://www.mindtec.com.mx/wp-content/uploads/2018/08/publicidad.jpg" />
+                <img data-u="image" src="http://ar-pruebas.mindtec.me/ejemplo-ar.jpg" />
             </div>
         </div>
     </div>
