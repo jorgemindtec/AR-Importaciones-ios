@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="ar.importaciones" version="1.0.6" >
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="ar.importaciones" version="1.0.7" >
     <name>AR Import</name>
     <description>Tus Importaciones Seguras.</description>
     <author href="http://mindtec.com.mx/" email="contacto@mindtec.com.mx">Mindtec Software Revolution</author>
@@ -7,7 +7,8 @@
     <preference name="DisallowOverscroll" value="true" />
 	<preference name="orientation" value="portrait" />
 	<preference name="phonegap-version" value="cli-8.0.0" />
-	
+	<preference name="SplashScreenDelay" value="0"/>
+<preference name="FadeSplashScreenDuration" value="0"/>
     <!--<plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />-->
 	
 	<!--<<plugin name="cordova-plugin-camera">
