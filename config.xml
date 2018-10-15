@@ -5,7 +5,8 @@
     <author href="http://mindtec.com.mx/" email="contacto@mindtec.com.mx">Mindtec Software Revolution</author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
-	<preference name="phonegap-version" value="cli-8.0.0" />
+	<preference name="phonegap-version" value="cli-7.0.1" />
+    <preference name='pgb-builder-version' value='2' />
 	
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.2.0" />
@@ -27,7 +28,7 @@
 	<access origin="*" onlyInBrowser="true" />
 	
 	<preference name="orientation" value="portrait" />
-	<!--<platform name="ios">-->
+	<platform name="ios">
 	  <icon src="img/icon.png" />
 	  <icon src="img/icon-40.png" width="40" height="40" />	
 	  <icon src="img/icon-50.png" width="50" height="50" />
@@ -57,7 +58,7 @@
 	  <icon src="img/icon-72-2x.png"         gap:platform="ios"        width="144" height="144" />
 	  <icon src="img/icon-76-2x.png"         gap:platform="ios"        width="152" height="152" />
 	  <icon src="img/icon-512-2x.png"        gap:platform="ios"        width="1024" height="1024" />-->
-    <!--</platform>-->
+    </platform>
 	
     <allow-navigation href="*"/>
     <allow-intent href="http://*/*" />
