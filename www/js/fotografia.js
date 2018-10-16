@@ -3,19 +3,6 @@
 	var botonReturn = false;
 	var ImgZoom = "";
 
-function setOptions(srcType) {
-    var options = {
-        // Some common settings are 20, 50, and 100
-        quality: 50,
-        destinationType: Camera.DestinationType.NATIVE_URI,
-        // In this app, dynamically set the picture source, Camera or photo gallery
-        sourceType: srcType,
-        encodingType: Camera.EncodingType.JPEG,
-        mediaType: Camera.MediaType.PICTURE
-    }
-    return options;
-}
-
 function TomarFoto() {
 	if (contador == 6){
 		alert("no se permiten adjuntar mas de  fotos.");
