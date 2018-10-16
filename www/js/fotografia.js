@@ -8,7 +8,7 @@ function TomarFoto() {
 		alert("no se permiten adjuntar mas de  fotos.");
 	}
 	else{
-		var options = {
+		/*var options = {
                 quality: 50,
                 destinationType: Camera.DestinationType.FILE_URI,
                 encodingType: Camera.EncodingType.JPEG,
@@ -16,10 +16,10 @@ function TomarFoto() {
 				sourceType: Camera.PictureSourceType.CAMERA,
 				saveToPhotoAlbum: true
             }			
-      navigator.camera.getPicture(CamaraImagen, onFail, options);
+      navigator.camera.getPicture(CamaraImagen, onFail, options);*/
       // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
-     /*navigator.camera.getPicture(CamaraImagen, onFail, { quality: 50, allowEdit: true,
-       destinationType: destinationType.DATA_URL });*/
+     navigator.camera.getPicture(CamaraImagen, onFail, { quality: 50,
+       destinationType: destinationType.DATA_URL });
 	}
 }
 // mostrar imagen pequeña
@@ -33,13 +33,14 @@ function CamaraImagen(imageData) {
       $("#selected-foto").append("<div id='"+zoom+"img' style='display:none;'><img id='"+closezoom+"' class='cerrar-zoom' src='img/volver2.png' onclick='CerrarZoom("+fotoNum+")'> <img id='"+zoom+"' class='imagen-zoom' src=''></div>");
 	  
       // Show the captured photo
-	  $("#"+foto).attr("src",imageData);
-	  $("#"+zoom).attr("src",imageData);
-	 /* alert(imageData);
+	 /* $("#"+foto).attr("src",imageData);
+	  $("#"+zoom).attr("src",imageData);*/
+	 // alert(imageData);
 	  var imagen = document.getElementById(''+foto+'');
 	  var imagenzoom = document.getElementById(''+zoom+'');
       imagen.src = "data:image/jpeg;base64," + imageData;
-	  imagenzoom.src = "data:image/jpeg;base64," + imageData;*/
+	  //alert("data:image/jpeg;base64," + imageData);
+	  imagenzoom.src = "data:image/jpeg;base64," + imageData;
 	  contador += 1;
 	  fotoNum += 1;
 }
@@ -50,9 +51,14 @@ function ObtenerFoto(source) {
 	}
 	else{
       // Retrieve image file location from specified source
-            var options = {
+       /*     var options = {
                 quality: 50,
                 destinationType: Camera.DestinationType.FILE_URI,
+				sourceType: source
+            }*/
+            var options = {
+                quality: 50,
+                destinationType: Camera.DestinationType.DATA_URL,
 				sourceType: source
             }
       navigator.camera.getPicture(LibreriaImagen, onFail, options);
@@ -73,13 +79,15 @@ function LibreriaImagen(imageURI) {
 	 // $("#input-foto").append("<input type='file' name='"+input+"' value='data:image/jpeg;base64,"+imageURI+"'>");
 	  //**********************
 	  
-	  $("#"+foto).attr("src",imageURI);
-	  $("#"+zoom).attr("src",imageURI);
+	/*  $("#"+foto).attr("src",imageURI);
+	  $("#"+zoom).attr("src",imageURI);*/
 	  
-	/*  var imagen = document.getElementById(foto);
+	  var imagen = document.getElementById(foto);
 	  var imagenzoom = document.getElementById(zoom);
-      // Show the captured photo	  
-      imagen.src = imageURI;
+      // Show the captured photo
+      imagen.src = "data:image/jpeg;base64," + imageURI;
+	  imagenzoom.src = "data:image/jpeg;base64," + imageURI;
+     /* imagen.src = imageURI;
 	  imagenzoom.src = imageURI;*/
 	  contador += 1;
 	  fotoNum+=1;
