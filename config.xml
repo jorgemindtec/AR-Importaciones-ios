@@ -7,8 +7,6 @@
     <preference name="DisallowOverscroll" value="true" />
 	<preference name="orientation" value="portrait" />
 	<preference name="phonegap-version" value="cli-8.0.0" />
-	<preference name="SplashScreenDelay" value="0"/>
-<preference name="FadeSplashScreenDuration" value="0"/>
     <!--<plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />-->
 	
 	<!--<<plugin name="cordova-plugin-camera">
