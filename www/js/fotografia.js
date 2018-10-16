@@ -10,7 +10,7 @@ function TomarFoto() {
 	else{
 		var options = {
                 quality: 50,
-                destinationType: Camera.DestinationType.NATIVE_URI,
+                destinationType: Camera.DestinationType.FILE_URI,
                 encodingType: Camera.EncodingType.JPEG,
                 mediaType: Camera.MediaType.PICTURE,
 				sourceType: Camera.PictureSourceType.CAMERA,
@@ -53,7 +53,7 @@ function ObtenerFoto() {
       // Retrieve image file location from specified source
             var options = {
                 quality: 50,
-                destinationType: Camera.DestinationType.NATIVE_URI,
+                destinationType: Camera.DestinationType.FILE_URI,
 				sourceType: Camera.PictureSourceType.PHOTOLIBRARY
             }
       navigator.camera.getPicture(LibreriaImagen, onFail, options);
