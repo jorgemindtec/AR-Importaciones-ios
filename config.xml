@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="ar.importaciones" version="1.0.10" >
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="ar.importaciones" version="1.0.11" >
     <name>AR Import</name>
     <description>Tus Importaciones Seguras.</description>
     <author href="http://mindtec.com.mx/" email="contacto@mindtec.com.mx">Mindtec Software Revolution</author>
@@ -37,6 +37,11 @@
    	<variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Se utilizara la libreria multimedia para seleccionar las fotografias de los productos a importar." />  	
 </plugin>
 		
+            <preference name="CAMERA_USAGE_DESCRIPTION" default="This app needs camera access"/>
+            <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+                <string>$CAMERA_USAGE_DESCRIPTION</string>
+            </config-file>
+			
         	  <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
                 <string>Se requiere el permiso de la camara para tomar fotografias de los productos a importar.</string>
             </edit-config>
@@ -79,7 +84,7 @@
     </platform>
 	
     <gap:config-file platform="ios" parent="NSCameraUsageDescription" overwrite="true">
-                <string>Se requiere el permiso de la camara para tomar fotografias de los productos a importar.</string>
+        <string>Se requiere el permiso de la camara para tomar fotografias de los productos a importar.</string>
     </gap:config-file>
 	
     <allow-navigation href="*"/>
