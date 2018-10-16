@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="ar.importaciones" version="1.0.11" >
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="ar.importaciones" version="1.0.12" >
     <name>AR Import</name>
     <description>Tus Importaciones Seguras.</description>
     <author href="http://mindtec.com.mx/" email="contacto@mindtec.com.mx">Mindtec Software Revolution</author>
@@ -36,21 +36,21 @@
    	<variable name="CAMERA_USAGE_DESCRIPTION" value="Se requiere el permiso de la camara para tomar fotografias de los productos a importar." />
    	<variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Se utilizara la libreria multimedia para seleccionar las fotografias de los productos a importar." />  	
 </plugin>
+	
+	
+    <gap:config-file platform="ios" parent="NSCameraUsageDescription" overwrite="true">
+        <string>Se requiere el permiso de la camara para tomar fotografias de los productos a importar.</string>
+    </gap:config-file>
 		
-            <preference name="CAMERA_USAGE_DESCRIPTION" default="This app needs camera access"/>
-            <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
-                <string>$CAMERA_USAGE_DESCRIPTION</string>
-            </config-file>
-			
         	  <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
                 <string>Se requiere el permiso de la camara para tomar fotografias de los productos a importar.</string>
             </edit-config>
             <edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
                 <string>Se utilizara la libreria multimedia para seleccionar las fotografias de los productos a importar.</string>
             </edit-config>
-            <!--<edit-config target="NSPhotoLibraryAddUsageDescription" file="*-Info.plist" mode="merge">
-                <string>need photo library access to save pictures there</string>
-            </edit-config>-->
+           <edit-config target="NSPhotoLibraryAddUsageDescription" file="*-Info.plist" mode="merge">
+                <string>e utilizara la libreria multimedia para seleccionar las fotografias de los productos a importar.</string>
+            </edit-config>
 			
 	  <icon src="www/res/icon/ios/icon.png" />
 	  <icon src="www/res/icon/ios/icon-40.png" width="40" height="40" />	
@@ -82,10 +82,6 @@
 	  <icon src="img/icon-76-2x.png"         gap:platform="ios"        width="152" height="152" />
 	  <icon src="img/icon-512-2x.png"        gap:platform="ios"        width="1024" height="1024" />-->
     </platform>
-	
-    <gap:config-file platform="ios" parent="NSCameraUsageDescription" overwrite="true">
-        <string>Se requiere el permiso de la camara para tomar fotografias de los productos a importar.</string>
-    </gap:config-file>
 	
     <allow-navigation href="*"/>
     <allow-intent href="http://*/*" />
