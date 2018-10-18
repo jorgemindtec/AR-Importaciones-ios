@@ -63,29 +63,27 @@
 		var Lista_Aliexpress = [];
 		var Indice_Aliexpress = 0;
 		
+var Enlaces = [];
+var contadorEnlaces=0;
+var EnlacesServerFoto = [];
+var contadorEnlacesFoto=0;
+
 		CrearBD();
 		ClearBD();
 		
 		document.addEventListener("deviceready", onDeviceReady, false);
 		
-		function onDeviceReady() { 
-			//$("#inicio").hide();
+		function onDeviceReady() {
 			pictureSource = navigator.camera.PictureSourceType;
 			destinationType = navigator.camera.DestinationType;
 	
 			window.open = cordova.InAppBrowser.open;
 			//navigator.splashscreen.hide();
 			
-			document.addEventListener("backbutton", BotonBackCel, false);	
-			
-			/*loadscreen(0);  
-			setTimeout(function() {
-				loadscreen(1);			
-		$("#inicio").show();
-				
-			}, 2000);*/
+			document.addEventListener("backbutton", BotonBackCel, false);
 			
 		}
+		
 		var CerrarMenu = false;
 		function BotonBackCel() {
 			if (botonReturn == true){
@@ -96,7 +94,8 @@
 			else if (CerrarMenu == true){
 				CerrarMenu = false;
 				$("#menu").removeClass("show-menu");
-				funcionMenu = 0;	
+				$("#menu-toggle").removeClass("show-menu");
+				funcionMenu = 0;
 			}
 		}
 		function loadscreen(dato){
@@ -171,6 +170,7 @@
 				loadscreen(1);
 				$("#inicio").show();
 			}, 2000);
+			
 	</script>
 <!-- PANTALLA INICIO --------------------------------------------------------------- -->
 		<div id="inicio" class="contenedor inicio" style="display:none;">
@@ -719,8 +719,8 @@ function topFunction() {
 				</div>
 				<div class="divisor-fotos"></div>
 				<div id="formulario-foto">
-					<form id="form-foto">
-					<fieldset class="dataform" data-role="fieldcontain" data-type="horizontal" style="border:none;">
+					<form id="form-foto" enctype="multipart/form-data">
+					<!--<fieldset class="dataform" data-role="fieldcontain" data-type="horizontal" style="border:none;">-->
 						<div class="form-foto-input">
 							<input id="FotoNombre" class="form-lista" type="text" name="FotoNombre" placeholder="Nombre"><br>
 							<span id="error-FotoNombre" style="color: #0069b4;display: none;">* Favor de ingresar el Nombre</span>
