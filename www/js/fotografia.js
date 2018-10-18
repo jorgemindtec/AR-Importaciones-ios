@@ -9,17 +9,26 @@ function TomarFoto() {
 	}
 	else{
 		var options = {
-                quality: 50,
+                quality: 30,
                 destinationType: Camera.DestinationType.FILE_URI,
                 encodingType: Camera.EncodingType.JPEG,
                 mediaType: Camera.MediaType.PICTURE,
 				sourceType: Camera.PictureSourceType.CAMERA,
+				targetWidth: 600,
 				saveToPhotoAlbum: true
             }			
       navigator.camera.getPicture(CamaraImagen, onFail, options);
       // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
-    /* navigator.camera.getPicture(CamaraImagen, onFail, { quality: 50,
-       destinationType: destinationType.DATA_URL });*/
+	  
+	/*	var options = {
+                quality: 50,
+                destinationType: Camera.DestinationType.DATA_URL,
+                encodingType: Camera.EncodingType.JPEG,
+                mediaType: Camera.MediaType.PICTURE,
+				sourceType: Camera.PictureSourceType.CAMERA,
+				saveToPhotoAlbum: true
+            }	
+      navigator.camera.getPicture(CamaraImagen, onFail, options);*/
 	}
 }
 // mostrar imagen pequeña
@@ -32,19 +41,76 @@ function CamaraImagen(imageData) {
 	  $("#contenedor-fotos").append("<div id='"+contenedor+"'class='imagen-camara'><img id='"+close+"' class='eliminar-foto' src='img/eliminar.png' onclick='EliminarFoto("+fotoNum+")'><img id='"+foto+"' class='selected-foto' style='width:100%' src='' onclick='VerImagen("+fotoNum+")'></div>");
       $("#selected-foto").append("<div id='"+zoom+"img' style='display:none;'><img id='"+closezoom+"' class='cerrar-zoom' src='img/volver2.png' onclick='CerrarZoom("+fotoNum+")'> <img id='"+zoom+"' class='imagen-zoom' src=''></div>");
 	  
-      // Show the captured photo
-	  $("#"+foto).attr("src",imageData);
+      // FILE_URI
+	  /*$("#"+foto).attr("src",imageData);
 	  $("#"+zoom).attr("src",imageData);
-	 // alert(imageData);
-	 /* var imagen = document.getElementById(''+foto+'');
+	  alert(imageData);
+	  $("#fotoprev1").attr("src",imageData);*/
+	  var imagen = document.getElementById(''+foto+'');
+	  var imagenzoom = document.getElementById(''+zoom+'');
+      imagen.src = imageData;
+	  imagenzoom.src = imageData;
+	  // DATA_URI
+	/*  var imagen = document.getElementById(''+foto+'');
 	  var imagenzoom = document.getElementById(''+zoom+'');
       imagen.src = "data:image/jpeg;base64," + imageData;
-	  //alert("data:image/jpeg;base64," + imageData);
-	  imagenzoom.src = "data:image/jpeg;base64," + imageData;*/
+	  imagenzoom.src = "data:image/jpeg;base64," + imageData;
+	  alert("data:image/jpeg;base64," + imageData);*/
+	  
 	  contador += 1;
 	  fotoNum += 1;
+	  //subirImagen(imageData);
 }
 
+// ***********************************************************
+var ok = false;
+var Contadorupload = 0;
+//function subirImagen(fileURL) {
+function subirImagen() {
+	//alert("subiendo");
+	jQuery.each( Enlaces, function( i, valor ) {
+		if (valor != 'null'){
+	//		alert("valor "+valor);
+			var options = new FileUploadOptions();
+			options.fileKey = "imagen";
+			options.fileName = valor.substr(valor.lastIndexOf('/') + 1);
+
+			var ft = new FileTransfer();
+			ft.upload(valor, encodeURI("http://ar-pruebas.mindtec.me/upload-fotos.php"), uploadSuccess, uploadFail, options);
+		}
+	});
+
+}
+var contadorvalidar = 0;
+function uploadSuccess(r) {
+	//alert("subio");
+	EnlacesServerFoto[contadorEnlacesFoto] = r.response;
+	contadorEnlacesFoto+=1;
+	Enlaces[Contadorupload]='null';
+	Contadorupload+=1;	
+	
+	contadorvalidar+=1;
+		
+	//verificar();	
+               // alert("Code = " + r.responseCode+" Response = " + r.response+" Sent = " + r.bytesSent);
+               /* var image = document.getElementById('fotoServidor');
+                image.src = r.response;*/
+}
+/*var numverificar = 0;
+var errorupload = false;*/
+function verificar(){
+	//alert("funcion " +contadorvalidar);
+	if(contadorvalidar == NumEnlacesFotos){
+			//alert("ok");
+			ok=true;
+	}
+}
+function uploadFail(error) {
+    alert("Ocurrio un error");
+
+}
+
+// ***********************************************************
 function ObtenerFoto() {
 	if (contador == 6){
 		alert("no se permiten adjuntar mas de  fotos.");
@@ -52,9 +118,12 @@ function ObtenerFoto() {
 	else{
       // Retrieve image file location from specified source
             var options = {
-                quality: 50,
+                quality: 20,
                 destinationType: Camera.DestinationType.FILE_URI,
-				sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+                encodingType: Camera.EncodingType.JPEG,
+                mediaType: Camera.MediaType.PICTURE,
+				sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+				targetWidth: 600
             }
       navigator.camera.getPicture(LibreriaImagen, onFail, options);
 	}
@@ -74,18 +143,24 @@ function LibreriaImagen(imageURI) {
 	 // $("#input-foto").append("<input type='file' name='"+input+"' value='data:image/jpeg;base64,"+imageURI+"'>");
 	  //**********************
 	  
-	  $("#"+foto).attr("src",imageURI);
+	  //FILE_URI
+	 /* $("#"+foto).attr("src",imageURI);
 	  $("#"+zoom).attr("src",imageURI);
-	  
-	/*  var imagen = document.getElementById(foto);
+	  alert(imageURI);*/
+	  var imagen = document.getElementById(''+foto+'');
+	  var imagenzoom = document.getElementById(''+zoom+'');
+      imagen.src = imageURI;
+	  imagenzoom.src = imageURI;
+	  //DATA_URI
+	 /* var imagen = document.getElementById(foto);
 	  var imagenzoom = document.getElementById(zoom);
-      // Show the captured photo
-      imagen.src = "data:image/jpeg;base64," + imageURI;
-	  imagenzoom.src = "data:image/jpeg;base64," + imageURI;*/
-     /* imagen.src = imageURI;
+      imagen.src = imageURI;
 	  imagenzoom.src = imageURI;*/
+	  
 	  contador += 1;
 	  fotoNum+=1;
+	  //subirImagen(imageURI);
+	 // alert(imageURI);
 }
 function onFail(message) {
       //alert('Failed because: ' + message);
