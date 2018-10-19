@@ -215,17 +215,17 @@ function ValidarFormLista(){
 			url: "http://ar-pruebas.mindtec.me/form-lista.php",
 			type:"POST",
 			success: function(){
-				$("#mensaje-lista").text("El mensaje ah sido enviado con éxito.");
+				$("#mensaje-lista").text("Tu solicitud ha sido enviada, un asesor se contactará a la brevedad posible contigo.");
 				setTimeout(function() {
 					$("#mensaje-lista").text("");
-				}, 2000);
+				}, 3000);
 				UpdateBD();
 			},
 			error :function(){
 				$("#mensaje-lista").text("Ocurrio un error, por favor intentar más tarde.");
 				setTimeout(function() {
 					$("#mensaje-lista").text("");
-				}, 2000);
+				}, 3000);
 				return false;
 			},
 			complete : function(){
