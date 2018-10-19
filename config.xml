@@ -22,9 +22,9 @@
 		<plugin name="cordova-plugin-statusbar" source="npm" spec="2.1.3" />
 	    
 	<preference name="StatusBarOverlaysWebView" value="false" />
-	<preference name="StatusBarBackgroundColor" value="#1070BA" />
+	<!--<preference name="StatusBarBackgroundColor" value="#1070BA" />
 	<preference name="StatusBarStyle" value="lightcontent" />
-	<preference name="StatusBarDefaultScrollToTop" value="false" />
+	<preference name="StatusBarDefaultScrollToTop" value="false" /> -->
 	    
 		<!-- ----------------------------------------------------------- -->
         <plugin name="cordova-plugin-camera" source="npm">
