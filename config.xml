@@ -9,7 +9,9 @@
     <preference name="phonegap-version" value="cli-8.0.0" />
 		<!-- ----------------------------------------------------------- -->
 	<preference name="StatusBarOverlaysWebView" value="true" />
-	<preference name="StatusBarBackgroundColor" value="#1070ba" />
+	<preference name="StatusBarBackgroundColor" value="#1070BA" />
+	<preference name="StatusBarStyle" value="lightcontent" />
+	<preference name="StatusBarDefaultScrollToTop" value="false" />
 		<!-- ----------------------------------------------------------- -->
     <feature name="http://api.phonegap.com/1.0/network" />
     <access onlyInBrowser="true" origin="*" />
