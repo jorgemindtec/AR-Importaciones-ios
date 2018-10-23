@@ -199,6 +199,7 @@ function ValidarFormLista(){
 	}
 
 	if(hasError == false) {
+		$("#mensaje-lista").text("Enviando correo...");
 		var datos = {
 			"nombre" : nombre,
 			"telefono" : telefono,
@@ -302,6 +303,7 @@ function ValidarFormContacto(){
 	}
 
 	if(hasError == false) {
+		$("#mensaje-contacto").text("Enviando correo...");
 		var datos = {
 			"nombre" : nombre,
 			"telefono" : telefono,
@@ -337,139 +339,40 @@ function ValidarFormContacto(){
 
 var NumEnlacesFotos = 0;
 function ValidarFormFotos(){
-	/*var hasError = false; 
-	var nombre = $("#FotoNombre").val();
-	var telefono = $("#FotoTelefono").val();
-	var correo = $("#FotoEmail").val();
-	var mensaje = $("#FotoMensaje").val();
-		*/
-	NumEnlacesFotos = $('#contenedor-fotos .selected-foto').length;
-	
-	if(NumEnlacesFotos==0){
-		return false;
-	}
-	if (NumEnlacesFotos > 0){		
-		$("#contenedor-fotos .selected-foto" ).each(function( index ) {
+	if ( $.trim($("#FotoNombre").val())!="" && $.trim($("#FotoTelefono").val())!="" && $.trim($("#FotoEmail").val())!="" && $.trim($("#FotoMensaje").val())!=""){
+		
+		NumEnlacesFotos = $('#contenedor-fotos .selected-foto').length;
+		
+		if (NumEnlacesFotos > 0){
+			$("#mensaje-foto").text("Enviando correo...");
+					
+			$("#contenedor-fotos .selected-foto" ).each(function( index ) {
 				if( index < NumEnlacesFotos){
-					Enlaces[contadorEnlaces] = $( this ).attr('src');
+					Enlaces[contadorEnlaces] = $(this).attr("src");
 					contadorEnlaces += 1;
 				}
-			});
-	}
-	subirImagen();
-	
-	var numverificar = 0;
-	
-	var busquedaEnlace = setInterval(function(){		
-		numverificar += 1;
-		//alert("verificando");
-		verificar();
-		
-		if(ok==true){ //archivos subidos al server
-			//alert("exito");
-			clearInterval(busquedaEnlace);
-			EnviarCorreoFotos();
-		}		
-		else if(numverificar == 5){
-			alert("Se agoto el tiempo de espera, intentar mas tarde.");
-			clearInterval(busquedaEnlace);
+			});	
+			subirImagen();
+			
+			var numverificar = 0;
+			
+			var busquedaEnlace = setInterval(function(){		
+				numverificar += 1;
+				verificar();
+				
+				if(ok==true){ //archivos subidos al server
+					clearInterval(busquedaEnlace);
+					EnviarCorreoFotos();
+				}		
+				else if(numverificar == 5){
+					alert("Se agoto el tiempo de espera, intentar mas tarde.");
+					clearInterval(busquedaEnlace);
+				}
+			}, 4000);		
 		}
-	}, 4000);
-	
-	/*jQuery.each( Enlaces, function( i, valor ) {
-		//if (valor != 'null'){
-			subirImagen(valor);
-			alert("subido ");
-		//}
-	});*/
-	
-	/*if(ok==true){
-		jQuery.each( EnlacesServerFoto, function( i, valor ) {
-			if (valor != 'null'){
-				alert("nombreimg "+valor);
-			}
-		});
-	}*/
-	
-	/*
-	var EnlacesCamara = JSON.stringify(EnlacesServerFoto);	
-	
-	if($.trim(nombre) == "") {
-		$("#error-FotoNombre").show();
-		//$("#FotoNombre").focus();
-		hasError = true;
 	}
-	else{
-		$("#error-FotoNombre").hide();
-	}
-	if($.trim(telefono) == "") {
-		$("#error-FotoTelefono").show();
-		//$("#FotoTelefono").focus();
-		hasError = true;
-	}
-	else{
-		$("#error-FotoTelefono").hide();
-	}
-	if($.trim(correo) == "") {
-		$("#error-FotoEmail").show();
-		//$("#FotoEmail").focus();
-		hasError = true;
-	}
-	else{
-		$("#error-FotoEmail").hide();
-	}
-	if($.trim(mensaje) == "") {
-		$("#error-FotoMensaje").show();
-		//$("#FotoMensaje").focus();
-		hasError = true;
-	}
-	else{
-		$("#error-FotoMensaje").hide();
-	}
-	if(hasError == false) {
-		var datos = {
-			"nombre" : nombre,
-			"telefono" : telefono,
-			"correo" : correo,
-			"mensaje" : mensaje,
-			data1 : EnlacesCamara
-		};
-		$.ajax({
-			data : datos,
-			url: "http://ar-pruebas.mindtec.me/form-fotos.php",
-			type:"POST",
-			success: function(){
-				$("#mensaje-foto").text("El mensaje ah sido enviado con éxito.");
-				setTimeout(function() {
-					$("#mensaje-foto").text("");
-				}, 2500);
-			},
-			error :function(){
-				$("#mensaje-foto").text("Ocurrio un error, por favor intentar más tarde.");
-				setTimeout(function() {
-					$("#mensaje-foto").text("");
-				}, 2500);
-				return false;
-			},
-			complete : function(){
-				$("#form-foto")[0].reset();
-				$("#FotoMensaje").text("Hola, Estoy interesado en el producto de la imagen. Dar mas detalles: ");
-				Enlaces = [];
-				contadorEnlaces=0;
-				EnlacesServerFoto = [];
-				contadorEnlacesFoto=0;
-			}
-		});
-	}	
-	return false;*/
 }
 function EnviarCorreoFotos(){
-	/*alert("enviando");
-	jQuery.each( EnlacesServerFoto, function( i, valor ) {
-			if (valor != 'null'){
-				alert("nombreimg "+valor);
-			}
-		});*/
 	var hasError = false; 
 	var nombre = $("#FotoNombre").val();
 	var telefono = $("#FotoTelefono").val();
