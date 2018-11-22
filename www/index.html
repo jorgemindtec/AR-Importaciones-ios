@@ -146,23 +146,6 @@ var contadorEnlacesFoto=0;
 		
 	</div>
 </div>
-    <!--<script src="js/touch-sideswipe.js"></script>-->
-    <!--<script type="text/javascript">	
-        var config = {
-            elementID: 'touchSideSwipe',
-            elementWidth: 400, //px
-            elementMaxWidth: 0.8, // *100%
-            sideHookWidth: 0, //px
-           // moveSpeed: 0.2, //sec
-            opacityBackground: 0.8,
-           // shiftForStart: 150, // px
-            windowMaxWidth: 1024, // px
-        }
-        var touchSideSwipe = new TouchSideSwipe(config);
-		/*
-        document.getElementById('callOpen').addEventListener('click', function(){touchSideSwipe.tssOpen()});
-        document.getElementById('callClose').addEventListener('click', function(){touchSideSwipe.tssClose()});*/
-    </script>-->
  <!--  *****************************************************************************************************************  -->	
 	<script>
 			loadscreen(0);  
@@ -451,11 +434,11 @@ $("#tiendas").change(function(){
 });
 </script>
 				<div id="logo-tiendas">
-					<img id="lg-ebay" src="img/lg-ebay.png">
-					<img id="lg-amazon" src="img/lg-amazon.png" style="display:none;">
-					<img id="lg-alibaba" src="img/lg-alibaba.png" style="display:none;">
-					<img id="lg-madechina" src="img/lg-made.png" style="display:none;">
-					<img id="lg-aliexpress" src="img/lg-aliexpress.png" style="display:none;">
+					<div id="lg-ebay"><div style="width: calc(100% - 54px);display: inline-block;"><img src="img/lg-ebay.png"></div><img class="img-refresh" src="img/refresh.png" onclick="refresh_Ebay()"></div>
+					<div id="lg-amazon" style="display:none;"><div style="width: calc(100% - 54px);display: inline-block;"><img src="img/lg-amazon.png"></div><img class="img-refresh" src="img/refresh.png" onclick="refresh_Amazon()"></div>
+					<div id="lg-alibaba" style="display:none;"><div style="width: calc(100% - 54px);display: inline-block;"><img src="img/lg-alibaba.png"></div><img class="img-refresh" src="img/refresh.png" onclick="refresh_Alibaba()"></div>
+					<div id="lg-madechina" style="display:none;"><div style="width: calc(100% - 54px);display: inline-block;"><img src="img/lg-made.png"></div><img class="img-refresh" src="img/refresh.png" onclick="refresh_Madechina()"></div>
+					<div id="lg-aliexpress" style="display:none;"><div style="width: calc(100% - 54px);display: inline-block;"><img src="img/lg-aliexpress.png"></div><img class="img-refresh" src="img/refresh.png" onclick="refresh_Aliexpress()"></div>
 				</div>
 				</div>
 			</div>
